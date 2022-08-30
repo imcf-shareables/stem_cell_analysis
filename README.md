@@ -13,7 +13,7 @@ On top of these files, a [YAML](https://github.com/imcf-shareables/stem_cell_ana
 
 ## Requirements
 
-These scripts are made in Python and requires [Fiji](http://fiji.sc/) to be ran. On top of this, multiple update sites need to be activated following [this guide](https://imagej.net/update-sites/#following-an-update-site): 
+These scripts are made in Python and requires [Fiji](http://fiji.sc/) to be run. On top of this, multiple update sites need to be activated following [this guide](https://imagej.net/update-sites/#following-an-update-site): 
 * 3DImageSuite
 * CSBDeep
 * IJPB-Plugins
@@ -26,7 +26,7 @@ And a [JAR](https://github.com/ome/omero-insight/releases/tag/v5.7.0) from the [
 
 Once activated, just drag and drop the script in the main Fiji window and click on the RUN button.
 
-As Fiji is operating system independant, this should run on any Windows, Mac and Linux. However, as the scripts use GPU acceleration for processing and Deep Learning algorithms, this will require a GPU with CUDA support to be fully optimal. 
+As Fiji is operating system independant, this should run on any Windows, Mac and Linux. However, as the scripts use GPU acceleration for processing and Deep Learning algorithms, this will require a GPU with CUDA support to be fully optimal. If no GPU are available, the CPU should be used but hasn't been tested internally.  
 
 ## Run scripts
 
@@ -34,11 +34,11 @@ As Fiji is operating system independant, this should run on any Windows, Mac and
 
 #### Input
 
-The script asks for a folder containing a list of files and a specific extension to look for. An upper threshold for the volume of nucleis is used to discard objects that are found by mistakes during segmentation. One threshold for the ectoderm and one for the endoderm are also set in the script to filter cells considered as positive for either. The script also prompts for one or multiple ROIs to be drawn on the image in order to focus the analysis on complete cell clusters.
+The script asks for a folder containing a list of files and a specific extension to look for. An upper threshold for the volume of nucleis is used to discard objects that are found by mistakes during segmentation. One intensity threshold for the ectoderm and one for the endoderm are also set in the script to filter cells considered as positive for either. The script also prompts for one or multiple ROIs to be drawn on the image in order to focus the analysis on complete cell clusters.
 
 #### Runtime 
 
-Once initiated, the script uses [StarDist](https://doi.org/10.1007/978-3-030-00934-2_30) ran through [TrackMate](https://www.biorxiv.org/content/10.1101/2021.09.03.458852v2) to find the nuclei in the selected regions. Found nucleis are then filtered based on the volume entered by the user using the [3DImageJSuite](https://academic.oup.com/bioinformatics/article/29/14/1840/231770?login=true) and if the nuclei is touching the X or Y borders, keeping only complete nucleis. Once filtered, the nuclei are dilated by a radius of 2 to which are subtracted the non-dilated ones to only keep a the cytoplasm in close proximity to the nucleis.
+Once initiated, the script uses [StarDist](https://doi.org/10.1007/978-3-030-00934-2_30) ran through [TrackMate](https://www.biorxiv.org/content/10.1101/2021.09.03.458852v2) to find the nuclei in the selected regions. Found nucleis are then filtered based on the volume entered by the user using the [3DImageJSuite](https://academic.oup.com/bioinformatics/article/29/14/1840/231770?login=true) and if the nuclei is touching the X or Y borders, keeping only complete nucleis. Once filtered, the nuclei are duplicated and dilated by a radius of 2 to which are subtracted the original ones to only keep the cytoplasm in close proximity to the nucleis.
 
 The endoderm intensity is then measured in the nuclei region using the corresponding channel, the ectoderm intensity is measured in the cytoplasm region using the corresponding channel. Cells considered positive for the endoderm intensity and cells positive for ectoderm intensity are counted and reported in the output CSV.
 

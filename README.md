@@ -13,7 +13,7 @@ On top of these files, a [YAML](https://github.com/imcf-shareables/stem_cell_ana
 
 ## Requirements
 
-These scripts are made in Python and requires [Fiji](http://fiji.sc/) to be run. On top of this, multiple update sites need to be activated following [this guide](https://imagej.net/update-sites/#following-an-update-site): 
+These scripts are made in Python and requires [Fiji](https://doi.org/10.1038/nmeth.2019) to be run. On top of this, multiple update sites need to be activated following [this guide](https://imagej.net/update-sites/#following-an-update-site): 
 * 3DImageSuite
 * CSBDeep
 * IJPB-Plugins

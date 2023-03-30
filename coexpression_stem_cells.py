@@ -45,8 +45,7 @@ from fiji.plugin.trackmate import Settings
 from fiji.plugin.trackmate import TrackMate
 from fiji.plugin.trackmate import SelectionModel
 from fiji.plugin.trackmate import Logger
-from fiji.plugin.trackmate.tracking import LAPUtils
-from fiji.plugin.trackmate.tracking.sparselap import SparseLAPTrackerFactory
+from fiji.plugin.trackmate.tracking.jaqaman import LAPUtils, SparseLAPTrackerFactory
 from fiji.plugin.trackmate.cellpose import CellposeDetectorFactory
 from fiji.plugin.trackmate.cellpose.CellposeSettings import PretrainedModel
 from fiji.plugin.trackmate.action import LabelImgExporter
@@ -220,7 +219,7 @@ def run_tm(implus, channel_number, quality_thresh, intensity_thresh, circularity
 
     # Configure tracker
     settings.trackerFactory = SparseLAPTrackerFactory()
-    settings.trackerSettings = LAPUtils.getDefaultLAPSettingsMap()
+    settings.trackerSettings = settings.trackerFactory.getDefaultSettings()
     # settings.addTrackAnalyzer(TrackDurationAnalyzer())
     settings.trackerSettings['LINKING_MAX_DISTANCE'] = 15.0
     settings.trackerSettings['GAP_CLOSING_MAX_DISTANCE'] = 15.0

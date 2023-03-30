@@ -523,7 +523,7 @@ try:
 
         rrna_imp.setTitle("C" + str(rrna_chnl))
         IJ.run(rrna_imp, "Median...", "radius=2 stack")
-        IJ.setAutoThreshold(rrna_imp, "Moments dark stack")
+        IJ.setAutoThreshold(rrna_imp, "Triangle dark stack")
         Prefs.blackBackground = True
         IJ.run(rrna_imp, "Convert to Mask", "method=Triangle background=Dark black")
 

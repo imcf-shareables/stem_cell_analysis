@@ -370,7 +370,7 @@ def dilate_labels_on_gpu(clij2_instance, label_image, dilation_radius):
 # ─── VARIABLES ──────────────────────────────────────────────────────────────────
 
 # OMERO server info
-HOST    = "omero.biozentrum.unibas.ch"
+HOST    = "omero.server.address"
 PORT    = 4064
 groupId = "-1"
 

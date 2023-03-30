@@ -22,7 +22,7 @@ These scripts are made in Python and requires [Fiji](https://doi.org/10.1038/nme
 * TrackMate-StarDist
 * CLIJ & CLIJ2
 
-And a [JAR](https://github.com/ome/omero-insight/releases/tag/v5.7.0) from the [OME-team](https://github.com/ome) was used to access files on the IMCF OMERO server.
+And a [JAR](https://github.com/ome/omero-insight/releases/tag/v5.7.0) from the [OME-team](https://github.com/ome) was used to access files on the IMCF OMERO server as well as the [JaCoP JAR](https://imagej.net/plugins/jacop) to run the co-expression analysis
 
 Once activated, just drag and drop the script in the main Fiji window and click on the RUN button.
 
